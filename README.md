@@ -2,7 +2,7 @@
   <a href="http://weishour.com/" target="blank"><img src="./public/img/logo.png" width="120" alt="weishour Logo" /></a>
 </p>
 
-<p align="center">一个进步的<a href="http://nodejs.org" target="blank"> weishour </a>框架，用于构建高效和可伸缩的服务器端应用程序，深受<a href="https://angular.io" target="blank"> Nest </a>的启发.</p>
+<p align="center">一个渐进式的<a href="http://nodejs.org" target="blank"> weishour </a>框架，用于构建高效和可伸缩的服务器端应用程序，深受<a href="https://angular.io" target="blank"> Nest </a>的启发.</p>
 <p align="center">
 
 ## 描述
