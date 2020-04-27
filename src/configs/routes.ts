@@ -9,9 +9,13 @@
 import { Routes } from 'nest-router';
 
 // import { ServersModule } from 'servers/servers.module';
-// import { DefaultModule } from 'servers/modules';
+import { ChatModule } from '../main/chat/chat.module';
 
 export const routes: Routes = [
+    {
+      path: '/chat',
+      module: ChatModule
+    },
     {
         path: '/servers',
         // module: ServersModule,

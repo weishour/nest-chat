@@ -12,12 +12,12 @@ import { NrConfigModule, DatabaseModule, GatewaysModule } from '@nr/common/modul
 @Module({
   imports: [
     NrConfigModule,
-    // DatabaseModule,
+    DatabaseModule,
     GatewaysModule
   ],
   exports: [
     NrConfigModule,
-    // DatabaseModule,
+    DatabaseModule,
     GatewaysModule
   ]
 })

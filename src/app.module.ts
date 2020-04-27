@@ -24,7 +24,7 @@ import { MainModule } from '@app/main/main.module';
     LibsCommonModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../..', 'client'),
-      serveRoot: '/chat',
+      serveRoot: '/wsChat',
     }),
     MainModule,
   ],

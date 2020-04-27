@@ -17,7 +17,7 @@ import { UserProvider } from './user.provider';
 
   ],
   providers: [
-    // ...UserProvider,
+    ...UserProvider,
   ],
 })
 export class UserModule {}

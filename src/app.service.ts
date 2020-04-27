@@ -14,9 +14,6 @@ export class AppService {
   constructor(private readonly nrConfigService: NrConfigService) {}
 
   getHello(): string {
-    console.log(this.nrConfigService.get('database'))
-    console.log(this.nrConfigService.port)
-    console.log(__dirname + '/../src/**/**.entity.ts')
     return '欢迎访问weishour服务！';
   }
 }

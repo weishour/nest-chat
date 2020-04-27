@@ -51,9 +51,9 @@ $(function() {
     socket.on('newMessage', function(data){
       // 其他用户信息
       if(localStorage.username == data.username){
-        othersMsg = '<li class="mdui-list-item mdui-ripple"><div class="mdui-list-item-content" style="text-align: right;"><div class="mdui-list-item-text">' + localStorage.username + '</div><div class="mdui-list-item-title">' + data.message + '</div></div><div class="mdui-list-item-avatar"><i class="mdui-icon material-icons mdui-text-color-red">account_circle</i></div></li>';
+        othersMsg = '<li class="mdui-list-item mdui-ripple"><div class="mdui-list-item-content" style="text-align: right;"><div class="mdui-list-item-text">' + data.username + '</div><div class="mdui-list-item-title">' + data.message + '</div></div><div class="mdui-list-item-avatar"><i class="mdui-icon material-icons mdui-text-color-red">account_circle</i></div></li>';
       }else{
-        othersMsg = '<li class="mdui-list-item mdui-ripple"><div class="mdui-list-item-avatar"><i class="mdui-icon material-icons mdui-text-color-blue">account_circle</i></div><div class="mdui-list-item-content"><div class="mdui-list-item-text">' + localStorage.username + '</div><div class="mdui-list-item-title">' + data.message + '</div></div></div></li>';
+        othersMsg = '<li class="mdui-list-item mdui-ripple"><div class="mdui-list-item-avatar"><i class="mdui-icon material-icons mdui-text-color-blue">account_circle</i></div><div class="mdui-list-item-content"><div class="mdui-list-item-text">' + data.username + '</div><div class="mdui-list-item-title">' + data.message + '</div></div></div></li>';
       }
 
       // 删除数据
@@ -76,6 +76,7 @@ $(function() {
     if(!localStorage.username){
       login();
     }else{
+      console.log(socket)
       socket.emit('addUser', localStorage.username);
     }
 
@@ -89,7 +90,12 @@ $(function() {
       const msg = $('.form .msg').val();
 
       if(!msg){
-        mdui.snackbar({ message: '请输入内容' });
+        mdui.snackbar({ message: '请输入内容！' });
+        return false;
+      }
+
+      if(!localStorage.username){
+        mdui.snackbar({ message: '请输入昵称！' });
         return false;
       }
 
@@ -104,7 +110,7 @@ $(function() {
       const lastObj = $(".chat-list").find(".mdui-list-item")[$(".chat-list").find(".mdui-list-item").length - 1];
       setScrollTop('chat-list', lastObj);
 
-      socket.emit('sendMessage', { 'message': msg, 'username': localStorage.username });
+      socket.emit('sendMessage', msg);
 
       $('.form .msg').val('');
     }
@@ -126,11 +132,14 @@ const login = () =>
       localStorage.username = value;
       socket.emit('addUser', value);
     },
-    false,
+    function (value) {
+
+    },
     {
       confirmText: '确认',
       cancelText: '取消',
       modal: true,
+      history: false,
       confirmOnEnter: true,
       defaultValue: localStorage.username || ''
     }

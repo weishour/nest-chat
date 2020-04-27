@@ -3,7 +3,7 @@ import { ChatGateway } from '@nr/common/gateways';
 
 @Module({
   providers: [
-    ChatGateway
+    // ChatGateway
   ],
 })
 export class GatewaysModule {}

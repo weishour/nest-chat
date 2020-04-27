@@ -2,7 +2,7 @@ nr-server:
   stage: deploy
   script:
   # 打开到项目目录
-  - cd /workspace/www.weishour.com/weishour
+  - cd /workspace/server.weishour.com/weishour
   # 不保留本地的修改
   - git reset --hard
   # 执行pull操作
