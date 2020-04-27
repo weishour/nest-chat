@@ -47,6 +47,10 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## 聊天页面
+
+[聊天页面](http://localhost/wsChat)
+
 <!-- ## pm2部署
 
 ```bash
