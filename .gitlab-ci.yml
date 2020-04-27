@@ -1,0 +1,19 @@
+nr-server:
+  stage: deploy
+  script:
+  # 打开到项目目录
+  - cd /workspace/www.weishour.com/weishour
+  # 不保留本地的修改
+  - git reset --hard
+  # 执行pull操作
+  - git pull origin master
+  # 安装或更新包
+  - yarn install
+  # 重新构建系统
+  - yarn run build
+  # 重新构建文档
+  - yarn run doc
+  # 赋予文件权限
+  - chmod -R 777 ./logs
+  only:
+  - master

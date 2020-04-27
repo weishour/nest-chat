@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>唯守简易聊天室</title>
+      <link rel="stylesheet" href="./js/mdui-v0.4.3/css/mdui.min.css">
+      <style type="text/css">
+        .chat-list{
+          overflow:auto;width: 100%;height: 660px;border: 1px solid rgba(0,0,0,.12);border-left: 0;border-right: 0;
+        }
+      </style>
+  </head>
+  <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-blue">
+    <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-toolbar-hide">
+      <div class="mdui-toolbar mdui-color-indigo">
+          <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" id="main-menu" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
+          <a href="javascript:;" class="mdui-typo-headline">唯守闲聊</a>
+          <div class="mdui-toolbar-spacer"></div>
+          <a href="javascript:login();" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '用户登录'}"><i class="mdui-icon material-icons">account_circle</i></a>
+          <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '刷新页面'}"><i class="mdui-icon material-icons">refresh</i></a>
+          <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '未完待续'}"><i class="mdui-icon material-icons">more_vert</i></a>
+      </div>
+    </header>
+
+    <div class="mdui-drawer mdui-drawer-close" id="main-drawer" style="border-right: 1px solid rgba(0,0,0,.12);">
+        <ul class="mdui-list" mdui-collapse="{accordion: true}" style="max-width: 310px;">
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                <div class="mdui-list-item-content">首页</div>
+            </li>
+            <li class="mdui-list-item mdui-ripple mdui-text-color-theme">
+                <i class="mdui-list-item-icon mdui-icon mdui-text-color-theme material-icons">dashboard</i>
+                <div class="mdui-list-item-content">用户管理（其实是假的）</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="chat_space">
+      <div class="mdui-list chat-list"> </div>
+    </div>
+
+    <div class="mdui-col-xs-12 mdui-p-l-0">
+        <div class="mdui-row form">
+            <div class="mdui-col-xs-11" style="padding-top: 4px;">
+              <div class="mdui-textfield mdui-textfield-floating-label mdui-m-l-2 mdui-m-r-1">
+                <label class="mdui-textfield-label">信息</label>
+                <input class="mdui-textfield-input msg" maxlength="140">
+                <div class="mdui-textfield-error">信息不能为空</div>
+              </div>
+            </div>
+            <div class="mdui-col-xs-1 mdui-p-y-1 mdui-p-t-5">
+              <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple send">发送</button>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/mdui-v0.4.3/js/mdui.min.js"></script>
+    <script src="./js/socket.io/socket.io.js"></script>
+    <script src="./server.js"></script>
+  </body>
+</html>
